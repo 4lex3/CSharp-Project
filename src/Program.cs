@@ -1,7 +1,13 @@
-﻿internal class Program
+﻿using System;
+
+class Program
 {
-    private static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello, World!");
+
+        Game game = new Game();
+        game.Start();
+
+
     }
 }
