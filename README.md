@@ -1,4 +1,9 @@
-# Broken Horizons
+<a style="display: flex; justify-content: center;" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=32&duration=4995&pause=1000&color=0CFFD0&width=703&lines=Welcome+to+Breaking+Horizons+Game+%F0%9F%8E%AE" alt="Typing SVG" /></a>
+---
+
+</br>
+</br>
+</br>
 
 ![Preview](https://raw.githubusercontent.com/4lex3/CSharp-Project/refs/heads/main/docs/preview.png)
 
