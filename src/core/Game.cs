@@ -59,25 +59,19 @@ class Game
 
             int submenuOption = UiGame.SubMenu(map.ShowMap);
             currentEnemy = map.GetEnemy(player);
-            HistoryUI.ShowHistoryByEnemy(currentEnemy);
 
             switch (submenuOption)
             {
                 case 1:
-
+                    HistoryUI.ShowHistoryByEnemy(currentEnemy);
                     sean.LuckyShotSpawnByGame();
                     sean.RestartEnergyPointsByGame();
                     battleController.StartBattle(currentEnemy);
                     break;
 
                 case 2:
-
-                    Console.WriteLine($"Show");
-                    break;
-                case 3:
                     sessionController.SaveGame(player);
                     break;
-
             }
 
         } while (currentEnemy.CharacterName != "Colin");

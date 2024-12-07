@@ -98,7 +98,7 @@ public class UiGame
 
             try
             {
-                List<string> options = new List<string> { "Start at current level", "Booster Shop", "Save Game and Exit" };
+                List<string> options = new List<string> { "Start at current level", "Save Game" };
                 return Input.SelectInput("Select your option: ", options);
             }
             catch (IndexOutOfRangeException e)
