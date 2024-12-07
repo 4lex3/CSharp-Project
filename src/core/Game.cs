@@ -30,9 +30,8 @@ class Game
 
             name = Input.TextInput("\nEnter your name: ");
             player = sessionController.CreateGameSession(name);
+            HistoryUI.StartStory();
             BattleSelectorLoop();
-
-
 
         }
         if (option == 2)
@@ -60,6 +59,7 @@ class Game
 
             int submenuOption = UiGame.SubMenu(map.ShowMap);
             currentEnemy = map.GetEnemy(player);
+            HistoryUI.ShowHistoryByEnemy(currentEnemy);
 
             switch (submenuOption)
             {

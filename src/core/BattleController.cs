@@ -88,7 +88,4 @@ public class BattleController
         return enemy.Attack(helen);
     }
 
-    
-
-
 }

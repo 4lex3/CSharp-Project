@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
+    <title>Mermaid Diagram with Panzoom</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .mermaid-container {
+            overflow: auto;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar Mermaid
+            mermaid.initialize({ startOnLoad: true });
+
+            // Esperar a que Mermaid renderice el diagrama
+            const container = document.querySelector('.mermaid-container');
+            const mermaidDiv = container.querySelector('.mermaid');
+
+            // Aplicar Panzoom
+            const panzoomInstance = Panzoom(container, {
+                maxScale: 5,
+                minScale: 0.5,
+                contain: 'outside',
+            });
+
+            // Habilitar interacciones con el contenedor
+            container.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+        });
+    </script>
+</head>
+<body>
+    <div class="mermaid-container">
+        <div class="mermaid">
+classDiagram
+
+   %% Abilities
+     class AbilityType{
+
+        -Basic
+        -Special
+        -Ultimate
+    }
+
+     class Ability{
+        +Damage: double
+        +AbilityName: string
+        +AbilityType: AbilityType
+
+        +Ability(double damage, AbilityType type, string abilityName)
+     }
+
+      class AbilityWithCost{
+          +Cost: int
+          +publicMethod(double damage, AbilityType type, string abilityName, int cost)
+      }
+
+
+      class BasicHelen{
+          +BasicHelen()
+      }
+
+      class SpecialHelen{
+          +SpecialHelen()
+      }
+
+
+      class UltimateHelen{
+          +publicMethod()
+      }
+
+
+
+      class BasicSean{
+          +BasicHelen()
+      }
+
+      class SpecialSean{
+          +SpecialHelen()
+      }
+
+
+      class UltimateSean{
+          +publicMethod()
+      }
+
+
+
+    %% Spider Classes %%
+    class BasicSpider {
+        +BasicSpider()
+    }
+
+    class SpecialSpider {
+        +SpecialSpider()
+    }
+
+    class UltimateSpider {
+        +publicMethod()
+    }
+
+    %% Common Classes %%
+    class BasicCommon {
+        +BasicCommon()
+    }
+
+    %% ShadowHunter Classes %%
+    class BasicShadowHunter {
+        +BasicShadowHunter()
+    }
+
+    class SpecialShadowHunter {
+        +SpecialShadowHunter()
+    }
+
+    class UltimateShadowHunter {
+        +UltimateShadowHunter()
+    }
+
+    %% Alpha Classes %%
+    class BasicAlpha {
+        +BasicAlpha()
+    }
+
+    class SpecialAlpha {
+        +SpecialAlpha()
+    }
+
+    class UltimateAlpha {
+        +publicMethod()
+    }
+
+    %% Colin Classes %%
+    class BasicColin {
+        +BasicColin()
+    }
+
+
+   %%* Relaciones
+    AbilityType ..> Ability : Tiene
+    AbilityWithCost --> Ability : Hereda
+
+    BasicHelen --> Ability : Hereda
+    SpecialHelen --> Ability : Hereda
+    UltimateHelen --> Ability : Hereda
+
+    BasicSean --> AbilityWithCost : Hereda
+    SpecialSean --> AbilityWithCost : Hereda
+    UltimateSean --> AbilityWithCost : Hereda
+
+    BasicSpider --> Ability : Hereda
+    SpecialSpider --> Ability : Hereda
+    UltimateSpider --> Ability : Hereda
+
+    BasicCommon --> Ability : Hereda
+
+    BasicShadowHunter --> Ability : Hereda
+    SpecialShadowHunter --> Ability : Hereda
+    UltimateShadowHunter --> Ability : Hereda
+
+    BasicAlpha --> Ability : Hereda
+    SpecialAlpha --> Ability : Hereda
+    UltimateAlpha --> Ability : Hereda
+
+    BasicColin --> Ability : Hereda
+
+
+
+
+    %% Characters %%
+
+    class BaseCharacter {
+        +double Health
+        +string CharacterName
+        +BaseCharacter(string name)
+        +Attack(BaseCharacter target): AttackInfo
+    }
+
+    class CPUControlledCharacter {
+        -List~Ability~ abilities
+        +CPUControlledCharacter(List~Ability~ abilities, string name)
+        +Attack(BaseCharacter target): AttackInfo
+    }
+
+    class Enemy {
+        +bool hasBeenDefeated
+        +Enemy(List~Ability~ abilities, string name)
+        +MarkAsDefeated(): void
+        +AttackOnSean(): bool
+    }
+
+    class EnergyController {
+        -int energyPoints
+        +bool LuckyShot
+        +EnergyController(int initialPoints = 0)
+        +AddEnergyPointsByDamage(double damage): void
+        +RestartEnergyPoints(): void
+        +GetEnergyPoints(): int
+        +UseEnergyPoints(AbilityWithCost ability): int
+        +LuckyShotSpawn(): bool
+        +ExecuteLuckyShot(): bool
+        +AddPointsByLuckyShow(): void
+        +TakeLifeByLuckyShot(Sean sean): void
+    }
+
+
+    class Sean {
+        -EnergyController energyController
+        -List~AbilityWithCost~ abilities
+        +Sean(List~AbilityWithCost~ abilities, string name, EnergyController energyController)
+        +Attack(BaseCharacter target): AttackInfo
+        +LuckyShotSpawnByGame(): bool
+        +RestartEnergyPointsByGame(): void
+        +GetCurrentEnergyPoints(): int
+    }
+
+    class Helen {
+        +Helen(List~Ability~ abilities, string name)
+    }
+    class Alpha {
+        +Alpha()
+    }
+    class Colin {
+        +Colin()
+    }
+    class Common {
+        +Common()
+    }
+    class ShadowHunter {
+        +ShadowHunter()
+    }
+    class Spider {
+        +Spider()
+    }
+
+
+    %% Characters Relationships %%
+    CPUControlledCharacter --> BaseCharacter : Hereda
+    Enemy --> CPUControlledCharacter : Hereda
+    EnergyController ..> Sean : Interactúa
+    CPUControlledCharacter ..> Ability : Usa
+    Enemy ..> Ability : Usa
+    EnergyController ..> AbilityWithCost : Usa
+
+    Sean --> BaseCharacter : Hereda
+    Sean ..> EnergyController : TieneUn
+    Sean ..> AbilityWithCost : Usa
+
+    Enemy --> CPUControlledCharacter : Hereda
+    Helen --> CPUControlledCharacter : Hereda
+    Alpha --> Enemy : Hereda
+    Colin --> Enemy : Hereda
+    Common --> Enemy : Hereda
+    ShadowHunter --> Enemy : Hereda
+    Spider --> Enemy : Hereda
+
+    Alpha ..> Ability : Usa
+    Colin ..> Ability : Usa
+    Common ..> Ability : Usa
+    ShadowHunter ..> Ability : Usa
+    Spider ..> Ability : Usa
+
+
+
+
+
+    %% Map %%
+    class Map {
+        +enemies: List~Enemy~
+        +Map(List~Enemy~ enemies)
+        +ShowMap(): void
+        +GetEnemy(Player player): Enemy
+    }
+
+    %% Map Relations %%
+   Map ..> Enemy : Contiene
+
+
+    %% BattleController %%
+    class BattleController {
+        -Player player
+        -Helen helen
+        -Sean sean
+        -alliesTurn: bool
+        +BattleController(Player player, Helen helen, Sean sean)
+        +StartBattle(Enemy enemy): void
+        -ExecuteEnemyAttack(Enemy enemy): AttackInfo
+
+   }
+
+    %% BattleController Relations %%
+    BattleController ..> Player : Utiliza
+    BattleController .. Helen : Utiliza
+    BattleController .. Sean : Utiliza
+    BattleController ..> Enemy : InteracturaCon
+
+
+    %% Player %%
+    class Player {
+        -SessionId: int
+        -Name: string
+        -CurrentLevel: int
+        -Attempts: int
+        -TimePlayed: double
+        -InitialDate: DateTime
+        -InProgress: bool
+        +Player(int sessionId, string name, int currentLevel, int attempts, int timePlayed, DateTime initialDate, bool inProgress)
+        +FinishGame(): void
+        +getTimePlayed(): double
+        +UpLevel(): void
+        +AddNewAttempt(): void
+    }
+
+   Player ..> BattleController : Participa en
+    Player ..> Map : Usa
+
+
+
+    %% Session Controller %%
+    class SessionController {
+        -sessionFile: string
+        +GetGameSessions(): Player[]
+        +SaveGame(player: Player): void
+        +SetEnemyStates(player: Player, enemies: Enemy[]): void
+        +CreateGameSession(playerName: string): Player
+        -ParsePlayer(session: string): Player
+        -FindSession(sessions: Player[], sesionId: int): Player
+        -ModifySession(sessionId: int, content: string): void
+        -PlayerToString(player: Player): string
+    }
+
+
+    %% Game %%
+    class Game {
+        -player: Player
+        -sessionController: SessionController
+        -map: Map
+        -helen: Helen
+        -sean: Sean
+        -battleController: BattleController
+        +Start(): void
+        -BattleSelectorLoop(): void
+    }
+
+    Game ..> Player : Usa
+    Game ..> SessionController : Interactúa con
+    Game .. Map : Usa
+    Game ..> Helen : Usa
+    Game ..> Sean : Usa
+    Game ..> BattleController : Usa
+
+    %% Dialog e input %%
+    class Dialog {
+        +WriteDialog(text: string, textColor: ConsoleColor = ConsoleColor.Green, sleep: int = 10): void
+    }
+
+    class Input {
+        +SelectInput(label: string, options: []string, color: ConsoleColor = ConsoleColor.DarkCyan): int
+        +TextInput(label: string, consoleColor: ConsoleColor = ConsoleColor.DarkBlue): string
+    }
+
+    %% Relaciones %%
+    Dialog -- Input : Utiliza para mostrar texto
+    Input -- Dialog : Utiliza para mostrar mensajes de error
+
+
+
+
+    %% UIs %%
+    class BattleUI {
+        +PlayerStatusBar(helen: Helen, sean: Sean, enemy: Enemy): void
+        +AttackLogBar(attackLog: string[]): void
+        +GameOverMessage(): void
+        +VictoryMessage(): void
+        +PlayerStatsTable(player: Player): void
+    }
+
+    class HistoryUI {
+        -PressAnyKey(): void
+        -EncounterWithSpider(): void
+        -EncounterWithShadowHunter(): void
+        -EncounterWithAlpha(): void
+        -FinalConfrontationWithColin(): void
+    }
+
+
+    class UiGame {
+        +Menu(): int
+        +SessionSelector(sessions: Player[]): Player
+        +SubMenu(showMap: Action): int
+        +Exit(): void
+    }
+
+    UiGame -- Input : Utiliza para seleccionar opciones
+    UiGame -- Dialog : Muestra mensajes para la UI
+
+
+
+       </div>
+    </div>
+</body>
+</html>
