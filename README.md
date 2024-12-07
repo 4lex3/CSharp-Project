@@ -62,3 +62,5 @@ Broken Horizons es un juego de consola inspirado y ambientado en un apocalipsis 
 - **Mapa establecido de recorrido**
 - **Eventos aleatorios y personajes**
 - **Lore e historia**
+- **Attack log y Health log interactivo**
+- **Conteo de horas: Ejemplo: 1.5hours**
