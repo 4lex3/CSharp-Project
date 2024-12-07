@@ -1,10 +1,5 @@
-
 public class Helen : CPUControlledCharacter
 {
-    public Helen() : base(
-        new List<Ability> { new BasicHelen(), new SpecialHelen(), new UltimateHelen() },
-        "Helen"
-
-    )
+    public Helen(List<Ability> abilities, string name) : base(abilities, name)
     { }
 }

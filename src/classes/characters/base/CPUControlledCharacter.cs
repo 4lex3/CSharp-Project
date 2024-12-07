@@ -1,9 +1,22 @@
 public class CPUControlledCharacter : BaseCharacter
 {
-    public CPUControlledCharacter (List<Ability> abilities, string name): base(abilities, name) {}
 
-    public double AutoAttack(){
-        int randomAttack = new Random().Next(1, abilities.Count); 
-        return abilities[randomAttack].Attack();
+    protected List<Ability> abilities; 
+    public CPUControlledCharacter (List<Ability> abilities, string name): base(name) {
+        this.abilities = abilities;
     }
-}
+
+    public override AttackInfo Attack(BaseCharacter target){
+
+        AttackInfo attack;
+        Ability selectedAbility = abilities[new Random().Next(0, abilities.Count)];
+
+        attack.attackLog = $"{CharacterName}:   \t\t\tLaunching attack ({selectedAbility.AbilityName}) to {target.CharacterName} (-{selectedAbility.Damage})";
+        
+        attack.damage = selectedAbility.Damage;
+        target.Health -= selectedAbility.Damage;
+
+        return attack;
+    }
+
+} 

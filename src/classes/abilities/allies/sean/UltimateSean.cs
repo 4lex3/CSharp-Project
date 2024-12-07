@@ -1,11 +1,6 @@
-public class UltimateSean: Ability
+public class UltimateSean: AbilityWithCost
 {
 
-    public UltimateSean() : base(18, AbilityType.Ultimate, "Explosion trap") {}
+    public UltimateSean() : base(35, AbilityType.Ultimate, "Explosion trap", 20) {}
 
-    public override double Attack()
-    {
-        Dialog.WriteDialog($"Sean: Launching ultimate (Explosion trap)!!!! ", ConsoleColor.Cyan);
-        return Damage;
-    }
 }

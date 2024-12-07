@@ -1,14 +1,8 @@
-
-
-public class Spider : CPUControlledCharacter
+public class Spider : Enemy 
 {
-    // public Spider(List<Ability> abilities, string name) : base(abilities, name) // {
-    //     new List<Ability> { new BasicHelen(), new SpecialHelen(), new UltimateHelen() },
-    //     "Helen"
-
-
-    // }
-    public Spider(List<Ability> abilities, string name) : base(abilities, name)
+    public Spider() : base(
+        new List<Ability> { new BasicSpider(), new SpecialSpider(), new UltimateSpider() }, "Spider"
+    )
     {
     }
 }

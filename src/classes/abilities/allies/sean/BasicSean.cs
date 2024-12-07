@@ -1,11 +1,7 @@
-public class BasicSean : Ability
+public class BasicSean : AbilityWithCost
 {
 
-    public BasicSean() : base(3, AbilityType.Basic, "Knife Attack") {}
+    public BasicSean() : base(10, AbilityType.Basic, "Knife Attack", 5) {}
 
-    public override double Attack()
-    {
-        Dialog.WriteDialog($"Sean: Launching basic Attack (Knife Attack)!!!! ", ConsoleColor.Cyan);
-        return Damage;
-    }
+    
 }

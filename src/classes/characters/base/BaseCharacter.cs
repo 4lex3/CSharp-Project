@@ -1,13 +1,13 @@
-public class BaseCharacter
+public abstract class BaseCharacter
 {
-    public int Health { get; set; }
+    public double Health { get; set; }
     public string CharacterName { get; set; }
-    protected List<Ability> abilities; 
 
-    public BaseCharacter(List<Ability> abilities, string name){
-        this.abilities = abilities;
+    public BaseCharacter( string name){
         Health = 100;
         CharacterName = name;
     }
+
+    public abstract AttackInfo Attack(BaseCharacter target);
 
 }

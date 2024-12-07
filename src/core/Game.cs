@@ -1,14 +1,22 @@
 class Game
 {
-    private Player currentPlayer;
+    private Player player;
     private SessionController sessionController;
+    private Map map;
+    private Helen helen;
+    private Sean sean;
+    private BattleController battleController;
 
 
-    public Game()
+    public Game(Player player, SessionController sessionController, Map map, Helen helen, Sean sean, BattleController battleController)
     {
-        sessionController= new SessionController();
+        this.sessionController = sessionController;
+        this.map = map;
+        this.helen = helen;
+        this.sean = sean;
+        this.battleController = battleController;
+        this.player = player;
     }
-
 
     public void Start()
     {
@@ -20,49 +28,59 @@ class Game
 
             string name;
 
-
-            while (true)
-            {
-                try
-                {
-                    Dialog.WriteDialog("\nEnter your name: ", ConsoleColor.Blue); name = Console.ReadLine();
-                    currentPlayer = sessionController.CreateGameSession(name);
-                    break;
-
-                }
-                catch (NullReferenceException e)
-                {
-                    Dialog.WriteDialog($"{e.Message}", ConsoleColor.Red);
-                    Console.ReadKey();
-                }
-            }
-
-
-            Console.Clear();
-            UiGame.StartStory();
-            Dialog.WriteDialog("\n\n\n\n\nPress any key to continue .... ", ConsoleColor.Yellow);
-            Console.ReadKey();
-            Console.Clear();
-
-
+            name = Input.TextInput("\nEnter your name: ");
+            player = sessionController.CreateGameSession(name);
+            BattleSelectorLoop();
 
 
 
         }
-
         if (option == 2)
         {
             List<Player> sessions = sessionController.GetGameSessions();
-            currentPlayer = UiGame.SessionSelector(sessions); 
-
-
-
+            player = UiGame.SessionSelector(sessions);
+            sessionController.SetEnemyStates(player, map.enemies);
+            BattleSelectorLoop();
         }
 
-        if (option == 3){ //Dialog.WriteDialog("See your later....", ConsoleColor.Yellow);
-            Helen helen = new Helen();
-            helen.AutoAttack();
-        } 
+        if (option == 3)
+        { 
+            UiGame.Exit();
+        }
+    }
+
+
+    private void BattleSelectorLoop()
+    {
+        battleController = new BattleController(player, helen, sean);
+        Enemy currentEnemy;
+
+        do
+        {
+
+            int submenuOption = UiGame.SubMenu(map.ShowMap);
+            currentEnemy = map.GetEnemy(player);
+
+            switch (submenuOption)
+            {
+                case 1:
+
+                    sean.LuckyShotSpawnByGame();
+                    sean.RestartEnergyPointsByGame();
+                    battleController.StartBattle(currentEnemy);
+                    break;
+
+                case 2:
+
+                    Console.WriteLine($"Show");
+                    break;
+                case 3:
+                    sessionController.SaveGame(player);
+                    break;
+
+            }
+
+        } while (currentEnemy.CharacterName != "Colin");
     }
 
 }

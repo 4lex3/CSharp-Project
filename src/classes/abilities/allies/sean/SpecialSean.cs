@@ -1,11 +1,6 @@
-public class SpecialSean: Ability
+public class SpecialSean: AbilityWithCost
 {
 
-    public SpecialSean() : base(7, AbilityType.Special, "Burst of Gunfire") {}
+    public SpecialSean() : base(20, AbilityType.Special, "Burst of Gunfire", 10) {}
 
-    public override double Attack()
-    {
-        Dialog.WriteDialog($"Sean: Launching Special Attack (Burst of gunfire)!!!! ", ConsoleColor.Cyan);
-        return Damage;
-    }
 }
