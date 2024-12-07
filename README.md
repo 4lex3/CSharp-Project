@@ -1,4 +1,7 @@
 # Broken Horizons
+
+![Preview](https://raw.githubusercontent.com/4lex3/CSharp-Project/refs/heads/main/doc/preview.png)
+
 Broken Horizons es un juego de consola inspirado y ambientado en un apocalipsis nuclear. Sean, un niño que perdio a sus padres durante el holocausto **encontrara una aliada con la cual tendran que sobrevivir** y buscar al culpable de la crisis mundial.
 
 ## Estructura del Proyecto
@@ -6,6 +9,9 @@ Broken Horizons es un juego de consola inspirado y ambientado en un apocalipsis 
 
 
 
+
+
+[Ver el diagrama interactivo](URL_DE_TU_ARCHIVO_HTML)
 
 ## Estructura de Clases
 
