@@ -1,4 +1,4 @@
-<a style="display: flex; justify-content: center;" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=32&duration=4995&pause=1000&color=0CFFD0&width=703&lines=Welcome+to+Breaking+Horizons+Game+%F0%9F%8E%AE" alt="Typing SVG" /></a>
+<a style="display: flex; justify-content: center;" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=5007&pause=19&color=0CFFD0&width=703&lines=Welcome+to+Broken+Horizons+Game+" alt="Typing SVG" /></a>
 ---
 
 </br>
@@ -35,8 +35,11 @@ Broken Horizons es un juego de consola inspirado y ambientado en un apocalipsis 
 
 [Visita el diagrama de clases interactivo hecho en Mermaid  👈](https://4lex3.github.io/CSharp-Project/)
 
+</br>
+</br>
 
-## Jugabilidad y Funciones destacables:
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=5007&pause=19&color=0CFFD0&width=703&lines=Jugabilidad+y+Funciones+destacables%3A)](https://git.io/typing-svg)
+---
 
 - **Gameplay:** El gameplay es basico, tienes puntos de habilidad que se van calculando en base al daño que inflingas al enemigo, este desbloqueara nuevas habilidades como una **Special** o **Ultimate**.
 
@@ -49,13 +52,24 @@ Broken Horizons es un juego de consola inspirado y ambientado en un apocalipsis 
 - **Cargado y guardado de Partida:** El juego te permitira guardar tu estado de partida y luego cargarlo nuevamente, esto a traves de las opciones dadas en el menu. 
 
 
-## Metodos, Patrones y Clases Principales:
+</br>
+</br>
+
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=5007&pause=19&color=0CFFD0&width=703&lines=Metodos%2C+Patrones+y+Clases+Principales%3A" alt="Typing SVG" /></a>
+---
+
 
 - **Game** Es la clase principal, en la cual se establece el bucle del juego.
 - **SessionController** Es la clase que controla la lectura y cargado de juego en el archivo de sesion
 - **BattleController** Es la clase que controla el sistema de batallas en el juego.
 
-## Funcionalidades destacables:
+</br>
+</br>
+
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=5007&pause=19&color=0CFFD0&width=703&lines=Estados+y+eventos+del+juego" alt="Typing SVG" /></a>
+---
+
+
 
 - **Cargado / Guardado de Partida**
 - **Seguimiento de Stats del usuario**
